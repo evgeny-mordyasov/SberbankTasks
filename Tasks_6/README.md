@@ -2,7 +2,7 @@
 
 Дан класс UserSber, модифицировать его поля не можем. Нужно написать утилитный метод: 
 
-public static List< UserSber > findDuplicates(Collection< UserSber > collA, Collection< UserSber > collB);
+public static List<UserSber> findDuplicates(Collection<UserSber> collA, Collection<UserSber> collB);
 
 который возвращает дубликаты: юзеров, которые есть в обеих коллекциях.
 Одинаковыми считаем юзеров, у которых совпадают все 3 поля: username, email, passwordHash.
