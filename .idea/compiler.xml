@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Tasks_9" />
+        <module name="Tasks_10" />
+        <module name="Tasks_11" />
+        <module name="Tasks_1" />
+        <module name="Tasks_2" />
+        <module name="Tasks_3" />
+        <module name="Tasks_4" />
+        <module name="Tasks_5" />
+        <module name="Tasks_6" />
+        <module name="Tasks_7" />
+        <module name="Tasks_8" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
