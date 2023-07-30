@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
  * Класс, позволяющий смоделировать ситуацию, когда мы можем поймать поток на состояние TIME_WAITING.
  */
 public class StateTimeWaiting implements Runnable {
+
     /**
      * Отправляем поток в режим ожидания, предоставляя возможность проверить его состояние TIME_WAITING.
      */

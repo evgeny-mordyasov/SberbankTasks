@@ -4,14 +4,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MyStringUtilsTest {
+class MyStringUtilsTest {
+
     private StringBuilder text;
 
     /**
      * В тексте одно повторяющееся слово "rp", записанное в различных формах.
      */
     @Test
-    public void test() {
+    void test() {
         text = new StringBuilder();
         text.append("RP rp Rp rP")
                 .append(" a b c d e f");
@@ -23,7 +24,7 @@ public class MyStringUtilsTest {
      * В тексте два повторяющихся слова: "hi" и "we", которые будут найдены функцией.
      */
     @Test
-    public void test1() {
+    void test1() {
         text = new StringBuilder();
         text.append("hi hI Hi HI")
                 .append(" we we we")
@@ -38,7 +39,7 @@ public class MyStringUtilsTest {
      * Так же будет определено и третье слово "b".
      */
     @Test
-    public void test2() {
+    void test2() {
         text = new StringBuilder();
         text.append("word word word word")
                 .append(" tord tord tord tord")
@@ -56,7 +57,7 @@ public class MyStringUtilsTest {
      * Т.к "cc" < "dd" в лексикографическом порядке, то сначала будет идти "cc", а после "dd".
      */
     @Test
-    public void test3() {
+    void test3() {
         text = new StringBuilder();
         text.append("bb bb bb bb")
                 .append(" aa aa aa ")

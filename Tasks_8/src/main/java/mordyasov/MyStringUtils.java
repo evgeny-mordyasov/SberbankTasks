@@ -4,14 +4,18 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyStringUtils {
+public final class MyStringUtils {
+
+    private MyStringUtils() {
+    }
+
     /**
      * Функция, позволяющая из текста извлечь наиболее повторяющиеся слова.
      * @param text - текст, в котором необходимо найти слова.
      * @param n - количество наиболее повторяющихся слов.
      * @return массив типа String, содержащий слова в порядке убывания по количеству повторений.
      */
-    public static String [] countingWords(String text, int n) {
+    public static String[] countingWords(String text, int n) {
         Map<String, Integer> map = new HashMap<>();
 
         Arrays.stream(text.split(" ")).map(String::toLowerCase).forEach(s -> {

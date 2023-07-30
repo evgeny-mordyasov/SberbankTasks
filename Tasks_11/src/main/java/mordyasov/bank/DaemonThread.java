@@ -12,10 +12,11 @@ import java.util.stream.Collectors;
  * перевода денежных средств между счетами.
  */
 public class DaemonThread extends Thread {
+
     /**
      * Банк, в пределах которого поток работает.
      */
-    private Bank bank;
+    private final Bank bank;
 
     public DaemonThread(Bank bank) {
         this.bank = bank;

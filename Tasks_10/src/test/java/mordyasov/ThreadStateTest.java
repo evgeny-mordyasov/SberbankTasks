@@ -10,12 +10,13 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ThreadStateTest {
+class ThreadStateTest {
+
     /**
      * Тестовый метод, позволяющий зафиксировать поток в состоянии NEW (создан, но не запущен).
      */
     @Test
-    public void test() {
+    void test() {
         Thread thread = new Thread(() -> {});
 
         assertEquals(thread.getState(), Thread.State.NEW);
@@ -28,7 +29,7 @@ public class ThreadStateTest {
      * совершить проверку состояний.
      */
     @Test
-    public void test1() {
+    void test1() {
         Thread thread = new Thread(() -> {});
         thread.start();
 
@@ -39,7 +40,7 @@ public class ThreadStateTest {
      * Тестовый метод, позволяющий зафиксировать поток в состоянии TERMINATED (завершенный).
      */
     @Test
-    public void test2() throws InterruptedException {
+    void test2() throws InterruptedException {
         Thread thread = new Thread(() -> {});
         thread.start();
         thread.join();
@@ -55,7 +56,7 @@ public class ThreadStateTest {
      * @see StateTimeWaiting класс, который демонстрирует ситуацию данного состояния.
      */
     @Test
-    public void test3() throws InterruptedException {
+    void test3() throws InterruptedException {
         Thread thread = new Thread(new StateTimeWaiting());
 
         thread.start();
@@ -74,7 +75,7 @@ public class ThreadStateTest {
      * @see StateWaiting класс, который демонстрирует ситуацию данного состояния.
      */
     @Test
-    public void test4() throws InterruptedException {
+    void test4() throws InterruptedException {
         StateWaiting object = new StateWaiting();
 
         Thread thread1 = new Thread(object);
@@ -97,7 +98,7 @@ public class ThreadStateTest {
      * @see StateBlocked класс, который демонстрирует ситуацию данного состояния.
      */
     @Test
-    public void test5() throws InterruptedException {
+    void test5() throws InterruptedException {
         StateBlocked object = new StateBlocked();
 
         Thread thread1 = new Thread(object);

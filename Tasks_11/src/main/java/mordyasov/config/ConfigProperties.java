@@ -8,19 +8,17 @@ import java.util.Properties;
  * позволяющий свободно работать с .properties файлом, вытаскивая необходимую информацию.
  */
 public class ConfigProperties {
-    /**
-     * Имя .properties файла.
-     */
-    private String configName;
 
     /**
      * Объект класса Properties, с помощью которого извлекается информация из файла.
      */
-    private Properties properties;
+    private final Properties properties;
 
+    /**
+     * @param configName - имя .properties файла.
+     */
     public ConfigProperties(String configName) {
         properties = findPropertiesFile(configName);
-        this.configName = configName;
     }
 
     /**
@@ -33,15 +31,11 @@ public class ConfigProperties {
     private Properties findPropertiesFile(String configName) {
         Properties properties = new Properties();
 
-        try(InputStream io = ConfigProperties.class
-                .getResourceAsStream(configName)) {
-
+        try (InputStream io = ConfigProperties.class.getResourceAsStream(configName)) {
             properties.load(io);
-
             return properties;
         } catch (Exception e) {
-            throw new RuntimeException(
-                    String.format("Файл %s не был найден в resources/", configName));
+            throw new RuntimeException(String.format("Файл %s не был найден в resources/", configName));
         }
     }
 

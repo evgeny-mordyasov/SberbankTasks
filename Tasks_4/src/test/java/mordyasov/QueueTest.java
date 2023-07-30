@@ -4,16 +4,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class QueueTest {
+class QueueTest {
+
     @Test
-    public void test1() {
+    void test1() {
         Queue queue = new Queue();
 
-        assertThrows(IllegalStateException.class, () -> queue.top());
+        assertThrows(IllegalStateException.class, queue::top);
     }
 
     @Test
-    public void test2() {
+    void test2() {
         Queue queue = new Queue(2);
 
         queue.enqueue(1);
@@ -23,7 +24,7 @@ public class QueueTest {
     }
 
     @Test
-    public void test3() {
+    void test3() {
         Queue queue = new Queue(5);
 
         queue.enqueue(1);
@@ -34,7 +35,7 @@ public class QueueTest {
     }
 
     @Test
-    public void test4() {
+    void test4() {
         Queue queue = new Queue(5);
 
         queue.enqueue(1);
@@ -48,7 +49,7 @@ public class QueueTest {
     }
 
     @Test
-    public void test5() {
+    void test5() {
         Queue queue = new Queue(5);
 
         queue.enqueue(1);
@@ -59,7 +60,7 @@ public class QueueTest {
     }
 
     @Test
-    public void test6() {
+    void test6() {
         Queue queue = new Queue(5);
 
         queue.enqueue(1);
@@ -74,7 +75,7 @@ public class QueueTest {
     }
 
     @Test
-    public void test7() {
+    void test7() {
         Queue queue = new Queue(3);
 
         queue.enqueue(1);
@@ -85,18 +86,17 @@ public class QueueTest {
     }
 
     @Test
-    public void test8() {
+    void test8() {
         Queue queue = new Queue(3);
 
         queue.enqueue(1);
-
         queue.dequeue();
 
         assertEquals("[]", queue.toString());
     }
 
     @Test
-    public void test9() {
+    void test9() {
         Queue queue = new Queue(1);
 
         queue.enqueue(1);
@@ -105,7 +105,7 @@ public class QueueTest {
     }
 
     @Test
-    public void test10() {
+    void test10() {
         Queue queue = new Queue(3);
 
         queue.enqueue(1);

@@ -3,6 +3,7 @@ package mordyasov.test_subjects;
 import mordyasov.annotations.DoTest;
 
 public class Something5 {
+
     @DoTest(order = -1)
     public int doSomething1() {
         return 0;

@@ -4,7 +4,11 @@ package mordyasov;
  * Класс Calculator содержит в себе один публичный метод, выполняющий вычисление определенного выражения вида a Q b,
  * где a, b - вещественные числа, а Q - это одна из операций: +-*%/
  */
-public class Calculator {
+public final class Calculator {
+
+    private Calculator() {
+    }
+
     /**
      * Функция, выполняющая определенное вычисление переданного выражения.
      * @param firstNumber первое вещественное число.

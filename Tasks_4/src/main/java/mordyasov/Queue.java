@@ -6,12 +6,13 @@ import java.util.Arrays;
  * Класс Queue представляет собой реализацию принципа FIFO, содержащий основные операции работы с очередью.
  */
 public class Queue {
+
     /**
      * Поле arrayOfObjects представляет собой массив Object, необходимый для хранения элементов очереди.
      * Имеет модификатор final потому, что массив является неизменным по количеству элементов. То есть, реализовано так,
      * что очередь будет ограничена определенным числом.
      */
-    private final Object [] arrayOfObjects;
+    private final Object[] arrayOfObjects;
 
     /**
      * Поле numberOfElements содержит в себе количество не null элементов в поле arrayOfObjects.
@@ -34,11 +35,11 @@ public class Queue {
      * @see #isFull() функция проверки очереди на заполненность.
      */
     public Object enqueue(Object element) {
-        if (isFull())
+        if (isFull()) {
             throw new ArrayIndexOutOfBoundsException("Очередь заполнена.");
+        }
 
         arrayOfObjects[numberOfElements++] = element;
-
         return element;
     }
 
@@ -49,8 +50,9 @@ public class Queue {
      * @see #isEmpty() функция проверки очереди на пустоту.
      */
     public Object top() {
-        if (isEmpty())
+        if (isEmpty()) {
             throw new IllegalStateException("Очередь пуста.");
+        }
 
         return arrayOfObjects[0];
     }
@@ -96,7 +98,7 @@ public class Queue {
      */
     @Override
     public String toString() {
-        Object [] array = new Object[numberOfElements];
+        Object[] array = new Object[numberOfElements];
         System.arraycopy(arrayOfObjects, 0, array, 0, numberOfElements);
 
         return Arrays.toString(array);

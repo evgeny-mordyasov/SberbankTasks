@@ -5,6 +5,7 @@ package mordyasov;
  * клавиатуру от компании Logitech двух видов: проводную или беспроводную.
  */
 public class LogitechFactory implements KeyboardsFactory {
+
     /**
      * Функция создания проводной клавиатуры.
      * @returns объект класса LogitechWired (проводную клавитуру от Logitech).

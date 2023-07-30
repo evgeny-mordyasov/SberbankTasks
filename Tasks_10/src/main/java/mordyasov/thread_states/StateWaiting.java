@@ -4,6 +4,7 @@ package mordyasov.thread_states;
  * Класс, позволяющий смоделировать ситуацию, когда мы можем поймать поток на состояние WAITING.
  */
 public class StateWaiting implements Runnable {
+
     @Override
     public void run() {
         doSomething();

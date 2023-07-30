@@ -4,6 +4,7 @@ import mordyasov.annotations.DoAfterAll;
 import mordyasov.annotations.DoTest;
 
 public class Something4 {
+
     @DoAfterAll
     public int doSomething1() {
         return 0;

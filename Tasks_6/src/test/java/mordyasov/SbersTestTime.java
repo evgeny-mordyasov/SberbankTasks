@@ -13,13 +13,14 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-public class SbersTestTime {
+class SbersTestTime {
+
     private Collection<UserSber> collection1;
     private Collection<UserSber> collection2;
     long startTime;
 
     @BeforeEach
-    public void init() {
+    void setUp() {
         int collectionType = 2;
 
         collection1 = getCollection(collectionType);
@@ -36,29 +37,26 @@ public class SbersTestTime {
     }
 
     @AfterEach
-    public void printTime() {
+    void tearDown() {
         System.out.println(System.currentTimeMillis() - startTime + " ms");
     }
 
     @Test
-    public void checkingTimeWait1() {
-        assertTimeoutPreemptively(Duration.ofMillis(200), () -> {
-            assertEquals(100_000, Sbers.findDuplicates(collection1, collection2).size());
-        });
+    void checkingTimeWait1() {
+        assertTimeoutPreemptively(Duration.ofMillis(200),
+                () -> assertEquals(100_000, Sbers.findDuplicates(collection1, collection2).size()));
     }
 
     @Test
-    public void checkingTimeWait2() {
-        assertTimeoutPreemptively(Duration.ofMillis(200), () -> {
-            assertEquals(100_000, Sbers.findDuplicates2(collection1, collection2).size());
-        });
+    void checkingTimeWait2() {
+        assertTimeoutPreemptively(Duration.ofMillis(200),
+                () -> assertEquals(100_000, Sbers.findDuplicates2(collection1, collection2).size()));
     }
 
     @Test
-    public void checkingTimeWait3() {
-        assertTimeoutPreemptively(Duration.ofMillis(200), () -> {
-            assertEquals(100_000, Sbers.findDuplicates3(collection1, collection2).size());
-        });
+    void checkingTimeWait3() {
+        assertTimeoutPreemptively(Duration.ofMillis(200),
+                () -> assertEquals(100_000, Sbers.findDuplicates3(collection1, collection2).size()));
     }
 
     /**

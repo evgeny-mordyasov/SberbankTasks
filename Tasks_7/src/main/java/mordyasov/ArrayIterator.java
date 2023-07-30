@@ -7,7 +7,8 @@ import java.util.stream.IntStream;
  * Класс, позволяющий перебрать все элементы двумерного массива.
  * @param <T> тип элементов массива.
  */
-public class ArrayIterator<T> implements Iterator<T>{
+public class ArrayIterator<T> implements Iterator<T> {
+
     private T[] array;
     private int currentIndex;
 
@@ -33,8 +34,9 @@ public class ArrayIterator<T> implements Iterator<T>{
      */
     @Override
     public T next() {
-        if (array.length == currentIndex)
+        if (array.length == currentIndex) {
             throw new NoSuchElementException();
+        }
 
         return array[currentIndex++];
     }
@@ -46,9 +48,7 @@ public class ArrayIterator<T> implements Iterator<T>{
      */
     private T[] convertToOneDimensional(T[][] array) {
         List<T> list = new ArrayList<>();
-
         IntStream.range(0, array.length).forEach(i -> list.addAll(Arrays.asList(array[i])));
-
         return (T[]) list.toArray();
     }
 }

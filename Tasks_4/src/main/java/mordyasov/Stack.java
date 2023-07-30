@@ -7,12 +7,13 @@ import java.util.EmptyStackException;
  * Класс Stack представляет собой реализацию принципа LIFO, содержащий основные операции работы со стеком.
  */
 public class Stack {
+
     /**
      * Поле arrayOfObjects представляет собой массив Object, необходимый для хранения элементов стека.
      * Имеет модификатор final потому, что массив является неизменным по количеству элементов. То есть, реализовано так,
      * что стек будет ограничен определенным числом.
      */
-    private final Object [] arrayOfObjects;
+    private final Object[] arrayOfObjects;
 
     /**
      * Поле numberOfElements содержит в себе количество не null элементов в поле arrayOfObjects.
@@ -35,11 +36,11 @@ public class Stack {
      * @see #isFull() функция проверки стека на заполненность.
      */
     public Object push(Object element) {
-        if (isFull())
+        if (isFull()) {
             throw new ArrayIndexOutOfBoundsException("Стек заполнен.");
+        }
 
         arrayOfObjects[numberOfElements++] = element;
-
         return element;
     }
 
@@ -50,8 +51,9 @@ public class Stack {
      * @see #isEmpty() функция проверки стека на пустоту.
      */
     public Object top() {
-        if (isEmpty())
+        if (isEmpty()) {
             throw new EmptyStackException();
+        }
 
         return arrayOfObjects[numberOfElements - 1];
     }
@@ -65,7 +67,6 @@ public class Stack {
     public Object pop() {
         Object element = top();
         arrayOfObjects[--numberOfElements] = null;
-
         return element;
     }
 
@@ -95,9 +96,8 @@ public class Stack {
      */
     @Override
     public String toString() {
-        Object [] array = new Object[numberOfElements];
+        Object[] array = new Object[numberOfElements];
         System.arraycopy(arrayOfObjects, 0, array, 0, numberOfElements);
-
         return Arrays.toString(array);
     }
 }

@@ -8,7 +8,9 @@ package mordyasov;
  * Если args.length < 2, то возникнет исключение.
  */
 public class Task1 {
+
     public static void main(String[] args) {
-        System.out.format("Минимальное число: %d", Math.min(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
+        System.out.format("Минимальное число: %d",
+                Math.min(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
     }
 }

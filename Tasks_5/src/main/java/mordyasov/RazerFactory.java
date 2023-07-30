@@ -5,6 +5,7 @@ package mordyasov;
  * клавиатуру от компании Razer двух видов: проводную или беспроводную.
  */
 public class RazerFactory implements KeyboardsFactory {
+
     /**
      * Функция создания проводной клавиатуры.
      * @returns объект класса RazerWired (проводную клавитуру от Razer).

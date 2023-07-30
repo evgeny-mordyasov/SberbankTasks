@@ -9,7 +9,11 @@ import java.util.stream.Collectors;
 /**
  * Класс AnnotationProcessor, фиксирующий аннотации над методами какого-либо класса, желающего протестировать.
  */
-public class AnnotationProcessor {
+public final class AnnotationProcessor {
+
+    private AnnotationProcessor() {
+    }
+
     /**
      * Функция, анализирующая аннотации над методами и запускающая методы по определенным правилам.
      * @param clazz класс, который содержит аннотации @DoTest, @DoBeforeAll или @DoAfterAll.
@@ -38,18 +42,14 @@ public class AnnotationProcessor {
         Arrays.stream(clazz.getMethods()).forEach(m -> {
             if (m.isAnnotationPresent(DoTest.class)) {
                 list.add(m);
-            }
-            else if (m.isAnnotationPresent(DoBeforeAll.class)) {
+            } else if (m.isAnnotationPresent(DoBeforeAll.class)) {
                 if (list.get(0) == null) {
                     list.set(0, m);
-                }
-                else throw new AnnotationException("Число аннотаций DoBeforeAll больше 1.");
-            }
-            else if (m.isAnnotationPresent(DoAfterAll.class)) {
+                } else throw new AnnotationException("Число аннотаций DoBeforeAll больше 1.");
+            } else if (m.isAnnotationPresent(DoAfterAll.class)) {
                 if (list.get(1) == null) {
                     list.set(1, m);
-                }
-                else throw new AnnotationException("Число аннотаций DoAfterAll больше 1.");
+                } else throw new AnnotationException("Число аннотаций DoAfterAll больше 1.");
             }
         });
 

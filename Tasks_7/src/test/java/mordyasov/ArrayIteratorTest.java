@@ -9,35 +9,36 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ArrayIteratorTest {
-    private static Integer [][] array;
+class ArrayIteratorTest {
+
+    private static Integer[][] ARRAY;
 
     /**
      * Поле, которое будет хранить в себе все элементы массива в строковом представлении.
      */
-    private static StringBuilder elements = new StringBuilder();
+    private static final StringBuilder ELEMENTS = new StringBuilder();
 
     /**
      * Генератор случайных чисел.
      */
-    private static ThreadLocalRandom random = ThreadLocalRandom.current();
+    private static final ThreadLocalRandom RANDOM = ThreadLocalRandom.current();
 
     /**
      * Поле, отвечающее за то, какой двумерный массив создавать и тестировать: матрицу или переменной длины.
      */
-    private static final boolean isMatrix = true;
+    private static final boolean IS_MATRIX = true;
 
     /**
      * Тест, который выполняется один раз и инициализирует массив, заполняющийся случайным образом.
      */
     @BeforeAll
-    public static void init() {
-        array = getArray();
+    static void init() {
+        ARRAY = getArray();
 
-        for(int i = 0; i < array.length; i++) {
-            for(int j = 0; j < array[i].length; j++) {
-                array[i][j] = random.nextInt(0, 100);
-                elements.append(array[i][j]);
+        for(int i = 0; i < ARRAY.length; i++) {
+            for(int j = 0; j < ARRAY[i].length; j++) {
+                ARRAY[i][j] = RANDOM.nextInt(0, 100);
+                ELEMENTS.append(ARRAY[i][j]);
             }
         }
     }
@@ -48,18 +49,18 @@ public class ArrayIteratorTest {
      * 1. массив-матрицу, если isMatrix равен true.
      * 2. массив переменной длины, если isMatrix равен false.
      */
-    private static Integer [][] getArray() {
-        return isMatrix ? getMatrix() : getNotMatrix();
+    private static Integer[][] getArray() {
+        return IS_MATRIX ? getMatrix() : getNotMatrix();
     }
 
     /**
      * Функция, инициализирующая массив переменной длины.
      * @returns двумерный массив пременной длины.
      */
-    private static Integer [][] getNotMatrix() {
-        Integer [][] arr = new Integer[random.nextInt(1, 10)][];
+    private static Integer[][] getNotMatrix() {
+        Integer[][] arr = new Integer[RANDOM.nextInt(1, 10)][];
         IntStream.range(0, arr.length).forEach(i ->
-                arr[i] = new Integer[random.nextInt(1, 10)]);
+                arr[i] = new Integer[RANDOM.nextInt(1, 10)]);
 
         return arr;
     }
@@ -68,8 +69,8 @@ public class ArrayIteratorTest {
      * Функция, инициализирующая массив-матрицу.
      * @returns двумерный массив-матрицу.
      */
-    private static Integer [][] getMatrix() {
-        return new Integer[random.nextInt(1, 10)][random.nextInt(1, 10)];
+    private static Integer[][] getMatrix() {
+        return new Integer[RANDOM.nextInt(1, 10)][RANDOM.nextInt(1, 10)];
     }
 
     /**
@@ -78,23 +79,23 @@ public class ArrayIteratorTest {
      * result - строка, получаемая при извлекании элементов из массива с помощью итератора.
      */
     @Test
-    public void test() {
-        ArrayIterator<Integer> iterator = new ArrayIterator<>(array);
+    void test() {
+        ArrayIterator<Integer> iterator = new ArrayIterator<>(ARRAY);
         StringBuilder result = new StringBuilder();
 
         while (iterator.hasNext()) {
             result.append(iterator.next());
         }
 
-        assertEquals(elements.toString(), result.toString());
+        assertEquals(ELEMENTS.toString(), result.toString());
     }
 
     /**
      * Тест, в котором проверяется, выпадает ли ошибка NoSuchElementException, если перебрать все элементы и выйти за границу.
      */
     @Test
-    public void test1() {
-        ArrayIterator<Integer> iterator = new ArrayIterator<>(array);
+    void test1() {
+        ArrayIterator<Integer> iterator = new ArrayIterator<>(ARRAY);
 
         assertThrows(NoSuchElementException.class, () -> {
             while (true) {

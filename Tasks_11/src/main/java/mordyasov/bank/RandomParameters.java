@@ -11,7 +11,11 @@ import java.util.stream.IntStream;
 /**
  * Класс RandomParameters, позволяющий генерировать определенные объекты.
  */
-public class RandomParameters {
+public final class RandomParameters {
+
+    private RandomParameters() {
+    }
+
     /**
      * Функция, позволяющая получить случайным образом два счета в банке.
      * Доступ к этим счетам блокируется от общего доступа, т.к они будут использованы клиентом

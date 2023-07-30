@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
  * Класс, позволяющий смоделировать ситуацию, когда мы можем поймать поток на состояние BLOCKED.
  */
 public class StateBlocked implements Runnable {
+
     @Override
     public void run() {
         doSomething();

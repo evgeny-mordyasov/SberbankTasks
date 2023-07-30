@@ -10,7 +10,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class SbersTest {
+class SbersTest {
+
     private List<UserSber> users = new ArrayList<>();
 
     /**
@@ -23,27 +24,27 @@ public class SbersTest {
     private final int CHOICE = 0;
 
     @BeforeEach
-    public void init() {
+    void setUp() {
         IntStream.rangeClosed(0, 9).forEach(e -> users.add(new UserSber("Steve" + e, "ru")));
     }
 
     @Test
-    public void test() {
+    void test() {
         assertEquals("[Steve2:ru]", method(users.subList(0, 3), users.subList(2, 5)).toString());
     }
 
     @Test
-    public void test1() {
+    void test1() {
         assertEquals("[]", method(users.subList(1, 5), users.subList(5, 9)).toString());
     }
 
     @Test
-    public void test2() {
+    void test2() {
         assertEquals("[Steve3:ru, Steve4:ru, Steve5:ru]", method(users.subList(0, 9), users.subList(3, 6)).toString());
     }
 
     @Test
-    public void test3() {
+    void test3() {
         users.add(new UserSber("Steve10", "ru"));
         users.add(new UserSber("Steve10", "ru"));
 

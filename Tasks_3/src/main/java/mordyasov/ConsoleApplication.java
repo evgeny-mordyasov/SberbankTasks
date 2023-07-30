@@ -15,7 +15,7 @@ public class ConsoleApplication {
      */
     private static void run() {
         while (true) {
-            double [] numbers = readNumbersFromConsole();
+            double[] numbers = readNumbersFromConsole();
             String operation = readOperationFromConsole();
 
             System.out.format("%.2f %s %.2f = %.2f\n",
@@ -28,11 +28,11 @@ public class ConsoleApplication {
      * @see #isInfinityOrNaN(double[]) вспомогательная функция.
      * @returns возвращает массив вещественных чисел длины 2.
      */
-    private static double [] readNumbersFromConsole() {
+    private static double[] readNumbersFromConsole() {
         while (true) {
             try {
                 System.out.println("Введите два числа: ");
-                double [] numbers = new double[]{ Double.parseDouble(read.nextLine()), Double.parseDouble(read.nextLine()) };
+                double[] numbers = new double[]{ Double.parseDouble(read.nextLine()), Double.parseDouble(read.nextLine()) };
 
                 if (isInfinityOrNaN(numbers))
                     throw new NumberFormatException();
@@ -51,7 +51,7 @@ public class ConsoleApplication {
      * 1. true, если первое или второе число массива является Infinity, -Infinity или NaN.
      * 2. false, если первое и второе число - это не Infinity, -Infinity или NaN.
      */
-    private static boolean isInfinityOrNaN(double [] numbers) {
+    private static boolean isInfinityOrNaN(double[] numbers) {
         return "-InfinityNaN".contains(String.valueOf(numbers[0])) ||
                 "-InfinityNaN".contains(String.valueOf(numbers[1]));
     }

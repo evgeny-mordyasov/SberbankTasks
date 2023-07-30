@@ -4,14 +4,15 @@ package mordyasov.config;
  * Класс CurrentConfig, представляющий собой текущую (действующую) конфигурацию настроек,
  * задаваемых с помощью .properties файла.
  */
-public class CurrentConfig {
+public final class CurrentConfig {
+
     /**
      * Конфигурационные настройки, находящиеся в .properties файле.
      */
-    public static String NUMBER_OF_CLIENTS = "number_of_clients";
-    public static String NUMBER_OF_ACCOUNTS = "number_of_accounts";
-    public static String AMOUNT_IN_THE_BANK = "amount_in_the_bank";
-    public static String MAX_AMOUNT_FOR_TRANSFER = "max_amount_for_transfer";
+    public static final String NUMBER_OF_CLIENTS = "number_of_clients";
+    public static final String NUMBER_OF_ACCOUNTS = "number_of_accounts";
+    public static final String AMOUNT_IN_THE_BANK = "amount_in_the_bank";
+    public static final String MAX_AMOUNT_FOR_TRANSFER = "max_amount_for_transfer";
 
     /**
      * Актуальная конфигурация настроек.

@@ -5,6 +5,7 @@ import mordyasov.annotations.DoBeforeAll;
 import mordyasov.annotations.DoTest;
 
 public class Something {
+
     @DoBeforeAll
     public int doSomething() {
         return 0;

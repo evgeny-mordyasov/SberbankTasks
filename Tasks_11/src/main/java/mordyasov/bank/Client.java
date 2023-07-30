@@ -7,10 +7,11 @@ import java.util.List;
  * Класс Client, выступающий в роли потока, совершающий денежный трансфер между счетами.
  */
 public class Client implements Runnable {
+
     /**
      * Банк, в котором будет произведена операция перевода денежны средств.
      */
-    private Bank bank;
+    private final Bank bank;
 
     public Client(Bank bank) {
         this.bank = bank;
@@ -26,7 +27,6 @@ public class Client implements Runnable {
         BigDecimal amount = RandomParameters.amount();
 
         bank.makeMoneyTransfer(accounts.get(0), accounts.get(1), amount);
-
         accounts.forEach(Account::unlock);
     }
 }

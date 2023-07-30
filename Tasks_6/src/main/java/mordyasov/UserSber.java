@@ -3,6 +3,7 @@ package mordyasov;
 import java.util.*;
 
 public class UserSber {
+
     private String username;
     private String email;
     private byte[] passwordHash;

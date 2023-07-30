@@ -8,6 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 
 public final class Vector {
+
     private final double x;
     private final double y;
     private final double z;

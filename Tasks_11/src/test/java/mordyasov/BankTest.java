@@ -17,13 +17,14 @@ import java.util.stream.IntStream;
 /**
  * Класс BankTest, необходимый для тестирования совершения денежных трансферов.
  */
-public class BankTest {
+class BankTest {
+
     /**
      * Тест, работающий по первому сценарию.
      * Сценарий: Запускаем N клиентов M счетов. Все ок.
      */
     @Test
-    public void test1() {
+    void test1() {
         CurrentConfig.appoint("../configs/config1.properties");
     }
 
@@ -33,7 +34,7 @@ public class BankTest {
      * Запускаем N клиентов и М счетов. Ожидаем, что будет исключение RuntimeException от потока-наблюдателя.
      */
     @Test
-    public void test2() {
+    void test2() {
         CurrentConfig.appoint("../configs/config2.properties");
     }
 
@@ -42,7 +43,7 @@ public class BankTest {
      * Сценарий: Запускаем N клиентов, которые работают только с двумя счетами. Все ок.
      */
     @Test
-    public void test3() {
+    void test3() {
         CurrentConfig.appoint("../configs/config3.properties");
     }
 
@@ -51,7 +52,7 @@ public class BankTest {
      * создание потока-наблюдателя, создание и запуск клиентов-потоков.
      */
     @AfterAll
-    public static void init() {
+    static void init() {
         int numberOfClients = property(CurrentConfig.NUMBER_OF_CLIENTS);
         Bank bank = new Bank(getList());
 

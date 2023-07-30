@@ -8,6 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Класс Account, являющийся счетом в банке и выступающий в роли хранилища денежных средств.
  */
 public class Account {
+
     /**
      * Баланс - текущее значение денежных средств на счете.
      */
@@ -16,7 +17,7 @@ public class Account {
     /**
      * Замок (блокировка), необходимый для ограничения общего доступа к счету.
      */
-    private Lock lock;
+    private final Lock lock;
 
     public Account(int initBalance) {
         balance = BigDecimal.valueOf(initBalance);
@@ -43,7 +44,6 @@ public class Account {
         }
 
         balance = balance.subtract(amount);
-
         return true;
     }
 
